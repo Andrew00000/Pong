@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://dcsu81shhc1xe"]
+
+[ext_resource type="PackedScene" uid="uid://dfinpusyset64" path="res://PlayerOne.tscn" id="1_xt7kx"]
+[ext_resource type="PackedScene" uid="uid://cjnmdxvwh7e08" path="res://PlayerTwo.tscn" id="2_evf2f"]
+[ext_resource type="PackedScene" uid="uid://bdkllbhbq1hc0" path="res://ai.tscn" id="4_6lhx8"]
+[ext_resource type="PackedScene" uid="uid://7fkxmrcfne2b" path="res://ball.tscn" id="4_r3hgx"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_3dwpc"]
+a = Vector2(1880, 1080)
+b = Vector2(-40, 1080)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_sey21"]
+b = Vector2(1920, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_m23j5"]
+a = Vector2(0, 1080)
+b = Vector2(0, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_r0epv"]
+a = Vector2(0, 1088)
+b = Vector2(0, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hejbb"]
+size = Vector2(1938, 32)
+
+[node name="Pong" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [536.0]
+metadata/_edit_vertical_guides_ = [960.0]
+
+[node name="PlayerOne" parent="." instance=ExtResource("1_xt7kx")]
+position = Vector2(48, 536)
+metadata/_edit_lock_ = true
+
+[node name="AI" parent="." instance=ExtResource("4_6lhx8")]
+visible = false
+position = Vector2(1872, 536)
+
+[node name="PlayerTwo" parent="." instance=ExtResource("2_evf2f")]
+visible = false
+position = Vector2(1872, 536)
+
+[node name="Ball" parent="." instance=ExtResource("4_r3hgx")]
+position = Vector2(960, 536)
+
+[node name="LowerBound" type="Area2D" parent="." groups=["upperAndLower"]]
+
+[node name="LowerBound" type="CollisionShape2D" parent="LowerBound"]
+position = Vector2(40, 0)
+shape = SubResource("SegmentShape2D_3dwpc")
+
+[node name="UpperBound" type="Area2D" parent="." groups=["upperAndLower"]]
+
+[node name="UpperBound" type="CollisionShape2D" parent="UpperBound"]
+shape = SubResource("SegmentShape2D_sey21")
+
+[node name="LeftBound" type="StaticBody2D" parent="." groups=["left"]]
+
+[node name="LeftBound" type="CollisionShape2D" parent="LeftBound"]
+shape = SubResource("SegmentShape2D_m23j5")
+
+[node name="RightBound" type="StaticBody2D" parent="." groups=["right"]]
+
+[node name="RightBound" type="CollisionShape2D" parent="RightBound"]
+position = Vector2(1920, -8)
+shape = SubResource("SegmentShape2D_r0epv")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(959, -16)
+shape = SubResource("RectangleShape2D_hejbb")
