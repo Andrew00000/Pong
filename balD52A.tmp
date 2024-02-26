@@ -22,3 +22,11 @@ position = Vector2(1.02179e-06, 1.02179e-06)
 scale = Vector2(0.999998, 0.999998)
 shape = SubResource("RectangleShape2D_jdwum")
 debug_color = Color(0.964706, 0, 0.501961, 0.419608)
+
+[node name="Area2D" type="Area2D" parent="." groups=["ball"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(5.10897e-07, 5.10897e-07)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_jdwum")
+debug_color = Color(0.964706, 0, 0.501961, 0.419608)

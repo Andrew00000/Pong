@@ -1,29 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdkllbhbq1hc0"]
+[gd_scene load_steps=4 format=3 uid="uid://bdkllbhbq1hc0"]
 
 [ext_resource type="Script" path="res://AI.gd" id="1_0tyhc"]
 [ext_resource type="Texture2D" uid="uid://bxji7kjx2olu8" path="res://Paddle.png" id="2_kdse7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmjph"]
-size = Vector2(35, 349.315)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p3wrr"]
 size = Vector2(37.5, 352.74)
 
-[node name="AI" type="CharacterBody2D"]
+[node name="AI" type="CharacterBody2D" groups=["paddle"]]
 scale = Vector2(0.4, 0.584)
+collision_layer = 4
+collision_mask = 24
 script = ExtResource("1_0tyhc")
 metadata/_edit_lock_ = true
 
 [node name="Paddle" type="Sprite2D" parent="."]
+position = Vector2(0, 0.342461)
 texture = ExtResource("2_kdse7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_mmjph")
-debug_color = Color(0.94902, 0, 0.580392, 0.419608)
-metadata/_edit_lock_ = true
-
-[node name="Collision" type="Area2D" parent="." groups=["paddle"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
-position = Vector2(-1.25, 0)
+position = Vector2(0, 0.342461)
 shape = SubResource("RectangleShape2D_p3wrr")

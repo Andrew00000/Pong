@@ -1,15 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjnmdxvwh7e08"]
+[gd_scene load_steps=4 format=3 uid="uid://cjnmdxvwh7e08"]
 
 [ext_resource type="Script" path="res://PlayerTwo.gd" id="1_f86nd"]
 [ext_resource type="Texture2D" uid="uid://bxji7kjx2olu8" path="res://Paddle.png" id="2_8h7fe"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_np2iw"]
-size = Vector2(14, 205)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hg5xy"]
 size = Vector2(15, 206)
 
-[node name="PlayerTwo" type="CharacterBody2D"]
+[node name="PlayerTwo" type="CharacterBody2D" groups=["paddle"]]
+collision_layer = 2
+collision_mask = 24
 script = ExtResource("1_f86nd")
 metadata/_edit_lock_ = true
 
@@ -18,11 +17,4 @@ scale = Vector2(0.4, 0.584)
 texture = ExtResource("2_8h7fe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3.55271e-15, 0.5)
-shape = SubResource("RectangleShape2D_np2iw")
-
-[node name="Collision" type="Area2D" parent="." groups=["paddle"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
-position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_hg5xy")
