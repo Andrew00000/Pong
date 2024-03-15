@@ -1,6 +1,5 @@
 extends CharacterBody2D
 const SPEED = 300
-var score = 0;
 
 @onready var ball = $"/root/Pong/Ball"
 
@@ -13,6 +12,3 @@ func _physics_process(delta):
 
 	velocity = direction * SPEED
 	move_and_slide()
-	
-func increaseScore():
-	score = score + 1

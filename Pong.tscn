@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dcsu81shhc1xe"]
+[gd_scene load_steps=10 format=3 uid="uid://dcsu81shhc1xe"]
 
 [ext_resource type="PackedScene" uid="uid://dfinpusyset64" path="res://PlayerOne.tscn" id="1_xt7kx"]
 [ext_resource type="PackedScene" uid="uid://cjnmdxvwh7e08" path="res://PlayerTwo.tscn" id="2_evf2f"]
 [ext_resource type="PackedScene" uid="uid://bdkllbhbq1hc0" path="res://AI.tscn" id="4_6lhx8"]
 [ext_resource type="PackedScene" uid="uid://7fkxmrcfne2b" path="res://Ball.tscn" id="4_r3hgx"]
+[ext_resource type="Script" path="res://ScoreBoard.gd" id="5_0b7cv"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_3dwpc"]
 a = Vector2(1880, 1080)
@@ -66,3 +67,6 @@ collision_mask = 15
 [node name="RightBound" type="CollisionShape2D" parent="RightBound"]
 position = Vector2(1920, -8)
 shape = SubResource("SegmentShape2D_r0epv")
+
+[node name="ScoreBoard" type="CanvasLayer" parent="."]
+script = ExtResource("5_0b7cv")

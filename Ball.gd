@@ -3,9 +3,7 @@ extends CharacterBody2D
 const SPEED = 300
 
 #TODO use signals
-@onready var playerOne = $"/root/Pong/PlayerOne"
-@onready var playerTwo = $"/root/Pong/PlayerTwo"
-@onready var AI = $"/root/Pong/AI"
+@onready var scoreBoard = $"/root/Pong/ScoreBoard"
 
 var startingAngle = deg_to_rad(randi() %45 + -45)
 var startingSide = -1 if randi() %1 == 0 else 1
@@ -27,11 +25,10 @@ func _physics_process(delta):
 			velocityY = velocity.y * -1
 			
 		if body.is_in_group("left"):
-			if AI != null:
-				AI.increaseScore()
-			else:
-				playerTwo.increaseScore()
+			scoreBoard.rightScore += 1
+			position = get_viewport_rect().size / 2
 			
 		if body.is_in_group("right"):
-			playerOne.increaseScore()
+			scoreBoard.leftScore += 1
+			position = get_viewport_rect().size / 2
 
